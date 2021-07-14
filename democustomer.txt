@@ -1,3 +1,7 @@
+
+
+
+
 mysql> desc person;
 +-----------------------------+---------------+------+-----+---------+-------+
 | Field                       | Type          | Null | Key | Default | Extra |
@@ -76,6 +80,15 @@ mysql> select c. CONTACT_MECH_ID from Contact_mech c INNER JOIN Party_contact_me
 +-----------------+
 4 rows in set (0.11 sec)
 
+mysql> select CONTACT_MECH_TYPE_ID from contact_mech where CONTACT_MECH_ID='9015';
++----------------------+
+| CONTACT_MECH_TYPE_ID |
++----------------------+
+| POSTAL_ADDRESS       |
++----------------------+
+1 row in set (0.00 sec)
+
+
 
 mysql> select * from  POSTAL_ADDRESS where Contact_mech_id='9015';
 +-----------------+---------------+-----------+-------------------+----------+--------------+------------------+------------+------+-------------+-------------+-----------------+----------------+-----------------------+---------------+---------------------+--------------------+--------------+-------------------------+-------------------------+-------------------------+-------------------------+
@@ -87,20 +100,120 @@ mysql> select * from  POSTAL_ADDRESS where Contact_mech_id='9015';
 
 mysql> select * from  POSTAL_ADDRESS where Contact_mech_id='9025';
 Empty set (0.00 sec)
+mysql> select c. CONTACT_MECH_ID from Contact_mech c INNER JOIN Party_contact_mech pc ON pc.CONTACT_MECH_ID=c.CONTACT_MECH_ID INNER JOIN party p ON p.PARTY_ID=pc.PARTY_ID AND p.PARTY_ID='DemoCustomer';
++-----------------+
+| CONTACT_MECH_ID |
++-----------------+
+| 9015            |
+| 9025            |
+| 9026            |
+| 9027            |
++-----------------+
+4 rows in set (1.06 sec)
 
-
-mysql> select contact_mech_type_id from contact_mech where contact_mech_id='9025';
+mysql> select CONTACT_MECH_TYPE_ID from contact_mech where CONTACT_MECH_ID='9015';
 +----------------------+
-| contact_mech_type_id |
+| CONTACT_MECH_TYPE_ID |
++----------------------+
+| POSTAL_ADDRESS       |
++----------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select CONTACT_MECH_TYPE_ID from contact_mech where CONTACT_MECH_ID='9025';
++----------------------+
+| CONTACT_MECH_TYPE_ID |
 +----------------------+
 | TELECOM_NUMBER       |
 +----------------------+
-1 row in set (0.09 sec)
+1 row in set (0.00 sec)
 
-mysql> select * from telecom_number where contact_mech_id='9025';
+mysql> select * from TELECOM_NUMBER where contact_mech_id='9025';
 +-----------------+--------------+-----------+----------------+--------------+-------------------------+-------------------------+-------------------------+-------------------------+
 | CONTACT_MECH_ID | COUNTRY_CODE | AREA_CODE | CONTACT_NUMBER | ASK_FOR_NAME | LAST_UPDATED_STAMP      | LAST_UPDATED_TX_STAMP   | CREATED_STAMP           | CREATED_TX_STAMP        |
 +-----------------+--------------+-----------+----------------+--------------+-------------------------+-------------------------+-------------------------+-------------------------+
 | 9025            | 1            | 801       | 555-5555       | NULL         | 2021-07-13 19:09:04.228 | 2021-07-13 19:09:00.493 | 2021-07-13 19:09:04.228 | 2021-07-13 19:09:00.493 |
 +-----------------+--------------+-----------+----------------+--------------+-------------------------+-------------------------+-------------------------+-------------------------+
-1 row in set (0.59 sec)
+1 row in set (0.13 sec)
+
+
+
+mysql> select CONTACT_MECH_TYPE_ID from contact_mech where CONTACT_MECH_ID='9026';
++----------------------+
+| CONTACT_MECH_TYPE_ID |
++----------------------+
+| EMAIL_ADDRESS        |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from contact_mech where CONTACT_MECH_ID='9026';
++-----------------+----------------------+-----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| CONTACT_MECH_ID | CONTACT_MECH_TYPE_ID | INFO_STRING           | LAST_UPDATED_STAMP      | LAST_UPDATED_TX_STAMP   | CREATED_STAMP           | CREATED_TX_STAMP        |
++-----------------+----------------------+-----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| 9026            | EMAIL_ADDRESS        | ofbiztest@example.com | 2021-07-13 19:09:04.256 | 2021-07-13 19:09:00.493 | 2021-07-13 19:09:04.256 | 2021-07-13 19:09:00.493 |
++-----------------+----------------------+-----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+mysql> select CONTACT_MECH_TYPE_ID from contact_mech where CONTACT_MECH_ID='9027';
++----------------------+
+| CONTACT_MECH_TYPE_ID |
++----------------------+
+| TELECOM_NUMBER       |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from contact_mech where CONTACT_MECH_ID='9027';
++-----------------+----------------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| CONTACT_MECH_ID | CONTACT_MECH_TYPE_ID | INFO_STRING | LAST_UPDATED_STAMP      | LAST_UPDATED_TX_STAMP   | CREATED_STAMP           | CREATED_TX_STAMP        |
++-----------------+----------------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| 9027            | TELECOM_NUMBER       | NULL        | 2021-07-13 19:09:04.224 | 2021-07-13 19:09:00.493 | 2021-07-13 19:09:04.224 | 2021-07-13 19:09:00.493 |
++-----------------+----------------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+
+1 row in set (0.00 sec)
+
+
+//payment method
+
+mysql> select PAYMENT_METHOD_ID from payment_method pm INNER JOIN party P ON pm.PARTY_ID=p.PARTY_ID AND p.PARTY_ID='DemoCustomer';
++-------------------+
+| PAYMENT_METHOD_ID |
++-------------------+
+| 9015              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select PAYMENT_METHOD_TYPE_ID from payment_method where PAYMENT_ID='9015';
+ERROR 1054 (42S22): Unknown column 'PAYMENT_ID' in 'where clause'
+mysql> select PAYMENT_METHOD_TYPE_ID from payment_method where PAYMENT_METHOD_ID='9015';
++------------------------+
+| PAYMENT_METHOD_TYPE_ID |
++------------------------+
+| CREDIT_CARD            |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from credit_card where PAYMENT_METHOD_ID='9015';
++-------------------+-----------+----------------------------------------------+-----------------+-------------+--------------+----------------------+---------------+--------------------+---------------------+-------------------+----------------+-----------------+--------------------------+-----------------------+------------------------+----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| PAYMENT_METHOD_ID | CARD_TYPE | CARD_NUMBER                                  | VALID_FROM_DATE | EXPIRE_DATE | ISSUE_NUMBER | COMPANY_NAME_ON_CARD | TITLE_ON_CARD | FIRST_NAME_ON_CARD | MIDDLE_NAME_ON_CARD | LAST_NAME_ON_CARD | SUFFIX_ON_CARD | CONTACT_MECH_ID | CONSECUTIVE_FAILED_AUTHS | LAST_FAILED_AUTH_DATE | CONSECUTIVE_FAILED_NSF | LAST_FAILED_NSF_DATE | LAST_UPDATED_STAMP      | LAST_UPDATED_TX_STAMP   | CREATED_STAMP           | CREATED_TX_STAMP        |
++-------------------+-----------+----------------------------------------------+-----------------+-------------+--------------+----------------------+---------------+--------------------+---------------------+-------------------+----------------+-----------------+--------------------------+-----------------------+------------------------+----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+| 9015              | CCT_VISA  | CiPdHUYvLpmeB6vAi4cdrFnR3Zu6QFuHaH1KkzucaX8= | NULL            | 02/2121     | NULL         | NULL                 | NULL          | DEMO               | NULL                | CUSTOMER          | NULL           | 9015            |                     NULL | NULL                  |                   NULL | NULL                 | 2021-07-13 19:09:04.773 | 2021-07-13 19:09:00.493 | 2021-07-13 19:09:04.773 | 2021-07-13 19:09:00.493 |
++-------------------+-----------+----------------------------------------------+-----------------+-------------+--------------+----------------------+---------------+--------------------+---------------------+-------------------+----------------+-----------------+--------------------------+-----------------------+------------------------+----------------------+-------------------------+-------------------------+-------------------------+-------------------------+
+1 row in set (0.00 sec)
+
+ 
+
+
+
+mysql> select cc.PAYMENT_METHOD_ID,cc.CARD_TYPE,cc.CARD_NUMBER from credit_card cc INNER JOIN payment_method pm ON cc.PAYMENT_METHOD_ID=pm.PAYMENT_METHOD_ID INNER JOIN party P ON pm.PARTY_ID=p.PARTY_ID AND p.PARTY_ID='DemoCustomer';
++-------------------+-----------+----------------------------------------------+
+| PAYMENT_METHOD_ID | CARD_TYPE | CARD_NUMBER                                  |
++-------------------+-----------+----------------------------------------------+
+| 9015              | CCT_VISA  | CiPdHUYvLpmeB6vAi4cdrFnR3Zu6QFuHaH1KkzucaX8= |
++-------------------+-----------+----------------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
