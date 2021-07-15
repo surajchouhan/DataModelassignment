@@ -216,4 +216,241 @@ mysql> select cc.PAYMENT_METHOD_ID,cc.CARD_TYPE,cc.CARD_NUMBER from credit_card 
 
 
 
+//UserLogin information
+
+mysql> select USER_LOGIN_ID,CURRENT_PASSWORD from user_login ul LEFT JOIN party p ON ul.PARTY_ID=p.PARTY_ID AND p.PARTY_ID='DemoCustomer';
++-----------------+-----------------------------------------------+
+| USER_LOGIN_ID   | CURRENT_PASSWORD                              |
++-----------------+-----------------------------------------------+
+| 1               | 356a192b7913cf4c54574d18bdf24699395428d4      |
+| 2               | a54bed37c5b3b28ee30760b5c8d1bbd735ef10cf      |
+| accountingadmin | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| AcctBuyer       | NULL                                          |
+| admin           | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| anonymous       | NULL                                          |
+| approver        | NULL                                          |
+| bigal           | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| BigSupplier     | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| bizadmin        | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| blog_admin      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| blog_author     | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| blog_editor     | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| blog_guest      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| blog_user       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| demoadmin       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| demoapprover    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoBuyer       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustAgent   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustCompany | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustomer    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustomer1   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustomer2   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoCustomer3   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| demoemployee    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoEmployee1   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoEmployee2   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoEmployee3   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoLeadOwner   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoLeadOwner1  | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoRepAll      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoRepStore    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoStakeholder | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| DemoSupplier    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| EuroCustomer    | NULL                                          |
+| EuroSupplier    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| flexadmin       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| FrenchCustomer  | NULL                                          |
+| imageAdmin      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| imageApprove    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| imageUpload     | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| ltdadmin        | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| ltdadmin1       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| madmax          | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| productowner    | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| productowner2   | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrumadmin      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrummaster     | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrumteam1      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrumteam2      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrumteam3      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| scrumteam4      | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| supplier        | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| system          | NULL                                          |
+| testadmin       | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
+| WorkEffortUser  | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a |
++-----------------+-----------------------------------------------+
+56 rows in set (0.00 sec)
+
+mysql> select * from user_login where USER_LOGIN_ID='DemoCustomer';
++---------------+-----------------------------------------------+---------------+-----------+---------+----------------+-------------------------+-------------------+-------------+----------------+--------------------+--------------------------+------------------+--------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------+
+| USER_LOGIN_ID | CURRENT_PASSWORD                              | PASSWORD_HINT | IS_SYSTEM | ENABLED | HAS_LOGGED_OUT | REQUIRE_PASSWORD_CHANGE | LAST_CURRENCY_UOM | LAST_LOCALE | LAST_TIME_ZONE | DISABLED_DATE_TIME | SUCCESSIVE_FAILED_LOGINS | EXTERNAL_AUTH_ID | USER_LDAP_DN | DISABLED_BY | LAST_UPDATED_STAMP      | LAST_UPDATED_TX_STAMP   | CREATED_STAMP           | CREATED_TX_STAMP        | PARTY_ID     |
++---------------+-----------------------------------------------+---------------+-----------+---------+----------------+-------------------------+-------------------+-------------+----------------+--------------------+--------------------------+------------------+--------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------+
+| DemoCustomer  | {SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a | NULL          | NULL      | NULL    | NULL           | NULL                    | NULL              | NULL        | NULL           | NULL               |                     NULL | NULL             | NULL         | NULL        | 2021-07-13 19:09:04.102 | 2021-07-13 19:09:00.493 | 2021-07-13 19:06:55.464 | 2021-07-13 19:06:55.429 | DemoCustomer |
++---------------+-----------------------------------------------+---------------+-----------+---------+----------------+-------------------------+-------------------+-------------+----------------+--------------------+--------------------------+------------------+--------------+-------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------+
+1 row in set (0.00 sec)
+
+
+8) Display all the parties in the “Customer” role who belongs to “Indore” city.
+
+
+mysql> select pc.PARTY_ID from postal_address p INNER JOIN contact_mech c ON p.CONTACT_MECH_ID=c.CONTACT_MECH_ID INNER JOIN party_contact_mech pc ON pc.CONTACT_MECH_ID=c.CONTACT_MECH_ID AND p.CITY='indore';
+Empty set (0.00 sec)
+
+mysql>
+
+
+
+mysql> select c.CONTACT_MECH_ID,p.PARTY_ID from contact_mech c INNER JOIN  party_contact_mech pc ON c.CONTACT_MECH_ID=pc.CONTACT_MECH_ID INNER JOIN party p ON p.PARTY_ID=pc.PARTY_ID INNER JOIN party_role pr ON P.PARTY_ID=pr.PARTY_ID AND pr.ROLE_TYPE_ID="CUSTOMER";
++-----------------+-----------------+
+| CONTACT_MECH_ID | PARTY_ID        |
++-----------------+-----------------+
+| 9011            | DemoCustAgent   |
+| 9022            | DemoCustAgent   |
+| 9023            | DemoCustAgent   |
+| 9010            | DemoCustCompany |
+| 9014            | DemoCustCompany |
+| 9020            | DemoCustCompany |
+| 9021            | DemoCustCompany |
+| 9015            | DemoCustomer    |
+| 9025            | DemoCustomer    |
+| 9026            | DemoCustomer    |
+| 9027            | DemoCustomer    |
+| 9001            | DemoCustomer1   |
+| 9020            | DemoCustomer1   |
+| 9023            | DemoCustomer1   |
+| 9001            | DemoCustomer2   |
+| 9020            | DemoCustomer2   |
+| 9023            | DemoCustomer2   |
+| 9001            | DemoCustomer3   |
+| 9020            | DemoCustomer3   |
+| 9023            | DemoCustomer3   |
+| EURO01          | EuroCustomer    |
+| EUROCUSTOMER    | EuroCustomer    |
+| FRA01           | FrenchCustomer  |
+| FRENCHCUSTOMER  | FrenchCustomer  |
++-----------------+-----------------+
+
+
+
+mysql> SELECT * from postal_address where CITY='indore';
+Empty set (0.00 sec)
+
+mysql>
+
+
+
+9) Display all the parties who have more than 2 addresses.
+
+mysql> select pc.PARTY_ID,c.CONTACT_MECH_TYPE_ID from postal_address p INNER JOIN contact_mech c ON p.CONTACT_MECH_ID=c.CONTACT_MECH_ID INNER JOIN party_contact_mech pc ON pc.CONTACT_MECH_ID=c.CONTACT_MECH_ID ;
++-----------------+----------------------+
+| PARTY_ID        | CONTACT_MECH_TYPE_ID |
++-----------------+----------------------+
+| DemoCustomer1   | POSTAL_ADDRESS       |
+| DemoCustomer2   | POSTAL_ADDRESS       |
+| DemoCustomer3   | POSTAL_ADDRESS       |
+| DemoEmployee    | POSTAL_ADDRESS       |
+| DemoEmployee1   | POSTAL_ADDRESS       |
+| DemoEmployee2   | POSTAL_ADDRESS       |
+| DemoEmployee3   | POSTAL_ADDRESS       |
+| DemoSupplier    | POSTAL_ADDRESS       |
+| Company         | POSTAL_ADDRESS       |
+| CA_BOE          | POSTAL_ADDRESS       |
+| NY_DTF          | POSTAL_ADDRESS       |
+| DemoCustCompany | POSTAL_ADDRESS       |
+| DemoCustAgent   | POSTAL_ADDRESS       |
+| DemoCustCompany | POSTAL_ADDRESS       |
+| DemoCustomer    | POSTAL_ADDRESS       |
+| EuroCustomer    | POSTAL_ADDRESS       |
+| FrenchCustomer  | POSTAL_ADDRESS       |
+| sfa100          | POSTAL_ADDRESS       |
+| BigSupplier     | POSTAL_ADDRESS       |
+| EuroSupplier    | POSTAL_ADDRESS       |
++-----------------+----------------------+
+20 rows in set (0.00 sec)
+
+10) Display all the parties who don't have any email address associated.
+
+mysql> select c. CONTACT_MECH_ID,c.CONTACT_MECH_TYPE_ID,P.PARTY_ID from Contact_mech c INNER JOIN Party_contact_mech pc ON pc.CONTACT_MECH_ID=c.CONTACT_MECH_ID INNER JOIN party p ON p.PARTY_ID=pc.PARTY_ID AND c.CONTACT_MECH_TYPE_ID!='EMAIL_ADDRESS';
++-----------------+----------------------+-----------------+
+| CONTACT_MECH_ID | CONTACT_MECH_TYPE_ID | PARTY_ID        |
++-----------------+----------------------+-----------------+
+| 9000            | POSTAL_ADDRESS       | Company         |
+| 9001            | POSTAL_ADDRESS       | DemoCustomer1   |
+| 9001            | POSTAL_ADDRESS       | DemoCustomer2   |
+| 9001            | POSTAL_ADDRESS       | DemoCustomer3   |
+| 9001            | POSTAL_ADDRESS       | DemoEmployee    |
+| 9001            | POSTAL_ADDRESS       | DemoEmployee1   |
+| 9001            | POSTAL_ADDRESS       | DemoEmployee2   |
+| 9001            | POSTAL_ADDRESS       | DemoEmployee3   |
+| 9001            | POSTAL_ADDRESS       | DemoSupplier    |
+| 9002            | POSTAL_ADDRESS       | BigSupplier     |
+| 9003            | POSTAL_ADDRESS       | EuroSupplier    |
+| 9010            | POSTAL_ADDRESS       | DemoCustCompany |
+| 9011            | POSTAL_ADDRESS       | DemoCustAgent   |
+| 9014            | POSTAL_ADDRESS       | DemoCustCompany |
+| 9015            | POSTAL_ADDRESS       | DemoCustomer    |
+| CA_BOE_0        | POSTAL_ADDRESS       | CA_BOE          |
+| EUROCUSTOMER    | POSTAL_ADDRESS       | EuroCustomer    |
+| FRENCHCUSTOMER  | POSTAL_ADDRESS       | FrenchCustomer  |
+| NY_DTF_0        | POSTAL_ADDRESS       | NY_DTF          |
+| sfa100          | POSTAL_ADDRESS       | sfa100          |
+| 9020            | TELECOM_NUMBER       | DemoCustCompany |
+| 9020            | TELECOM_NUMBER       | DemoCustomer1   |
+| 9020            | TELECOM_NUMBER       | DemoCustomer2   |
+| 9020            | TELECOM_NUMBER       | DemoCustomer3   |
+| 9020            | TELECOM_NUMBER       | DemoEmployee    |
+| 9020            | TELECOM_NUMBER       | DemoEmployee1   |
+| 9020            | TELECOM_NUMBER       | DemoEmployee2   |
+| 9020            | TELECOM_NUMBER       | DemoEmployee3   |
+| 9022            | TELECOM_NUMBER       | DemoCustAgent   |
+| 9025            | TELECOM_NUMBER       | DemoCustomer    |
+| 9027            | TELECOM_NUMBER       | DemoCustomer    |
+| sfa101          | TELECOM_NUMBER       | sfa100          |
++-----------------+----------------------+-----------------+
+32 rows in set (0.00 sec)
+
+mysql>
+
+
+
+ Display all the parties who have Visa credit cards
+
+
+mysql> select p.PARTY_ID from  credit_card c INNER JOIN payment_method pm ON c.PAYMENT_METHOD_ID=pm.PAYMENT_METHOD_ID INNER JOIN party p ON p.PARTY_ID=pm.PARTY_ID AND c.CARD_TYPE='VISA';
+Empty set (0.17 sec)
+
+mysql> select * from credit_card where CARD_TYPE='VISA';
+Empty set (0.00 sec)
+
+
+ Display all the parties who have more than one UserLogin.
+
+
+
+
+
+13) Display all the parties who have a primary phone number.
+
+
+mysql> select p.party_id,c.contact_mech_id,c.contact_mech_type_id from contact_mech c INNER JOIN party_contact_mech pm ON c.contact_mech_id=pm.contact_mech_id INNER JOIN party p ON p.party_id=pm.party_id AND contact_mech_type_id='TELECOM_NUMBER';
++-----------------+-----------------+----------------------+
+| party_id        | contact_mech_id | contact_mech_type_id |
++-----------------+-----------------+----------------------+
+| DemoCustCompany | 9020            | TELECOM_NUMBER       |
+| DemoCustomer1   | 9020            | TELECOM_NUMBER       |
+| DemoCustomer2   | 9020            | TELECOM_NUMBER       |
+| DemoCustomer3   | 9020            | TELECOM_NUMBER       |
+| DemoEmployee    | 9020            | TELECOM_NUMBER       |
+| DemoEmployee1   | 9020            | TELECOM_NUMBER       |
+| DemoEmployee2   | 9020            | TELECOM_NUMBER       |
+| DemoEmployee3   | 9020            | TELECOM_NUMBER       |
+| DemoCustAgent   | 9022            | TELECOM_NUMBER       |
+| DemoCustomer    | 9025            | TELECOM_NUMBER       |
+| DemoCustomer    | 9027            | TELECOM_NUMBER       |
+| sfa100          | sfa101          | TELECOM_NUMBER       |
++-----------------+-----------------+----------------------+
+12 rows in set (0.00 sec)
+
+
+
 
